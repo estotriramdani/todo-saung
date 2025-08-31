@@ -1,0 +1,30 @@
+GET http://localhost:5000/categories
+
+###
+
+GET http://localhost:5000/categories/5
+
+###
+
+POST http://localhost:5000/categories
+Content-Type: application/json
+
+{
+  "name": "Ihsan",
+  "email": "ihsan@example.com",
+  "nickname": "Ihsan",
+  "password": "securepassword"
+}
+
+###
+
+DELETE http://localhost:5000/categories/5
+
+###
+
+PUT http://localhost:5000/categories/3
+Content-Type: application/json
+
+{
+  "password": "newsecurepassword"
+}

@@ -26,4 +26,20 @@ router.post('/', async function (req, res) {
   return res.json(createUser);
 });
 
+router.delete('/:id', async function (req, res) {
+  const deleteUser = await UserModel.deleteUser(req.params.id);
+
+  res.json({
+    success: deleteUser.affectedRows > 0
+  })
+})
+
+router.put("/:id", async function (req, res) {
+  const updateUser = await UserModel.updateUser(req.params.id, req.body);
+
+  return res.json({
+    success: updateUser.affectedRows > 0
+  });
+});
+
 module.exports = router;
