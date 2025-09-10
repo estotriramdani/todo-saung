@@ -1,12 +1,12 @@
-GET http://localhost:5000/categories
+GET http://localhost:5000/api/categories
 
 ###
 
-GET http://localhost:5000/categories/5
+GET http://localhost:5000/api/categories/5
 
 ###
 
-POST http://localhost:5000/categories
+POST http://localhost:5000/api/categories
 Content-Type: application/json
 
 {
@@ -18,11 +18,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:5000/categories/5
+DELETE http://localhost:5000/api/categories/5
 
 ###
 
-PUT http://localhost:5000/categories/3
+PUT http://localhost:5000/api/categories/3
 Content-Type: application/json
 
 {

@@ -1,4 +1,5 @@
 {
   "editor.fontSize": 22,
-  "javascript.inlayHints.parameterNames.enabled": "none"
+  "javascript.inlayHints.parameterNames.enabled": "none",
+  "editor.fontLigatures": false
 }

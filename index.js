@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path')
 const { connectToDb } = require('./models');
 const userRouter = require('./routes/users')
 const todoRouter = require('./routes/todos')
@@ -7,44 +8,19 @@ const app = express();
 
 app.use(express.json());
 
+// Tujuan: untuk serving static asset (javascript, css, dll)
+app.use(express.static('public'));
+
 app.get('/', function (request, response) {
   response.send('Halo Dunia!');
 })
 
-app.use('/users', userRouter);
-app.use('/todos', todoRouter);
+// ===== API =====
 
-// app.get('/todos', async function (req, res) {
-//   const connection = await connectToDb();
-  
-//   const [todos] = await connection.query('SELECT * FROM todos');
+app.use('/api/users', userRouter);
+app.use('/api/todos', todoRouter);
 
-//   await connection.end();
-  
-//   return res.json(todos);
-// })
-
-// app.get('/todos/:id', async function (req, res) {
-//   const connection = await connectToDb();
-  
-//   const [todos] = await connection.query(`SELECT * FROM todos WHERE id = ${req.params.id}`);
-
-//   await connection.end();
-
-//   return res.json(todos);
-// })
-
-// app.get('/todos/:id', async function (req, res) {
-//   const connection = await connectToDb();
-
-//   const [todos] = await connection.query(`SELECT * FROM todos WHERE id = ${req.params.id}`);
-
-//   await connection.end();
-
-//   return res.json(todos);
-// })
-
-app.get('/categories', async function (req, res) {
+app.get('/api/categories', async function (req, res) {
   const connection = await connectToDb();
 
   const [categories] = await connection.query('SELECT * FROM categories');
@@ -54,7 +30,7 @@ app.get('/categories', async function (req, res) {
   return res.json(categories);
 })
 
-app.get('/categories/:id', async function (req, res) {
+app.get('/api/categories/:id', async function (req, res) {
   const connection = await connectToDb();
 
   const [categories] = await connection.query(`SELECT * FROM categories WHERE id = ${req.params.id}`);
@@ -62,6 +38,12 @@ app.get('/categories/:id', async function (req, res) {
   await connection.end();
 
   return res.json(categories);
+})
+
+// ===== FRONTEND =====
+
+app.get('/todos', async function (req, res) {
+  return res.sendFile(path.join(__dirname, './views/todos/index.html'))
 })
 
 app.listen(5000, function () {
