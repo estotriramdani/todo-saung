@@ -1,12 +1,17 @@
-const express = require('express');
+const express = require('express')
 const path = require('path')
-const { connectToDb } = require('./models');
+const { connectToDb } = require('./models')
 const userRouter = require('./routes/users')
 const todoRouter = require('./routes/todos')
+const ollamaRouter = require('./routes/ollama')
+const authRouter = require('./routes/auth')
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
+
+app.use(cors())
 
 // Tujuan: untuk serving static asset (javascript, css, dll)
 app.use(express.static('public'));
@@ -16,6 +21,7 @@ app.get('/', function (request, response) {
 })
 
 // ===== API =====
+app.use('/api/auth', authRouter)
 
 app.use('/api/users', userRouter);
 app.use('/api/todos', todoRouter);
@@ -39,6 +45,8 @@ app.get('/api/categories/:id', async function (req, res) {
 
   return res.json(categories);
 })
+
+app.use('/api/ollama', ollamaRouter);
 
 // ===== FRONTEND =====
 

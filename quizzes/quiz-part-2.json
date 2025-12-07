@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "question": "How many main tables are defined in the Todo Saung database schema?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": "2",
+      "explanation": "The database schema defines two main tables: users and todos.",
+      "points": 1
+    },
+    {
+      "question": "What is the primary key field name for the users table?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "id",
+      "explanation": "The users table uses 'id' as its primary key with AUTO_INCREMENT.",
+      "points": 1
+    },
+    {
+      "question": "The password field in the users table stores hashed passwords.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The passwords are stored as plain text, which is a security vulnerability.",
+      "points": 1
+    },
+    {
+      "question": "What data type is used for the todo title field?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["TEXT", "VARCHAR(256)", "CHAR(100)", "VARCHAR(100)"],
+      "correctAnswer": "VARCHAR(256)",
+      "explanation": "The title field in the todos table is defined as VARCHAR(256).",
+      "points": 1
+    },
+    {
+      "question": "Which field in the todos table references the users table?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "user_id",
+      "explanation": "The user_id field is a foreign key that references the id field in the users table.",
+      "points": 1
+    },
+    {
+      "question": "The todos table includes automatic timestamp tracking for updates.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The todos table has an updated_at field with ON UPDATE CURRENT_TIMESTAMP.",
+      "points": 1
+    },
+    {
+      "question": "What happens to todos when a user is deleted?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Nothing", "They are cascade deleted", "They become orphaned", "They are archived"],
+      "correctAnswer": "They are cascade deleted",
+      "explanation": "The foreign key constraint includes ON DELETE CASCADE, so todos are deleted when their user is deleted.",
+      "points": 1
+    },
+    {
+      "question": "Which method in UserModel is used to create a new user?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "createUser",
+      "explanation": "The createUser method handles inserting new user records into the database.",
+      "points": 1
+    },
+    {
+      "question": "The UserModel.updateUser method allows updating the user ID.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The updateUser method explicitly deletes the id field from userData to prevent ID updates.",
+      "points": 1
+    },
+    {
+      "question": "How many parameters does the TodoModel.createTodo method expect?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["3", "4", "5", "6"],
+      "correctAnswer": "4",
+      "explanation": "The createTodo method expects user_id, title, description, and due_date parameters.",
+      "points": 1
+    },
+    {
+      "question": "What does the TodoModel.getTodos method return alongside todo data?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "user information",
+      "explanation": "getTodos uses a LEFT JOIN to include user_name and user_nickname with each todo.",
+      "points": 1
+    },
+    {
+      "question": "The database connection is shared across all model operations.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "Each model method creates a new database connection and closes it after the operation.",
+      "points": 1
+    },
+    {
+      "question": "Which field determines if a todo is completed?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["status", "completed", "is_completed", "done"],
+      "correctAnswer": "is_completed",
+      "explanation": "The is_completed field is a BOOLEAN that tracks the completion status of todos.",
+      "points": 1
+    },
+    {
+      "question": "What is the default value for the is_completed field in todos?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "FALSE",
+      "explanation": "The is_completed field defaults to FALSE when a new todo is created.",
+      "points": 1
+    },
+    {
+      "question": "The todos table includes a category_id field.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The current schema does not include a category_id field in the todos table, though categories are referenced in the frontend.",
+      "points": 1
+    },
+    {
+      "question": "Which method would you use to get all todos for a specific user?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["getUserTodos", "getTodosByUserId", "findTodosByUser", "getUserTodoList"],
+      "correctAnswer": "getTodosByUserId",
+      "explanation": "The getTodosByUserId method filters todos by user_id and includes user information.",
+      "points": 1
+    },
+    {
+      "question": "What package is used for MySQL database connectivity?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "mysql2",
+      "explanation": "The application uses mysql2 package with promise support for database operations.",
+      "points": 1
+    },
+    {
+      "question": "The connectToDb function returns a database connection pool.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The connectToDb function returns a single database connection, not a connection pool.",
+      "points": 1
+    },
+    {
+      "question": "How are SQL parameters passed to prevent injection attacks?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["String concatenation", "Parameterized queries", "Escaped strings", "ORM mapping"],
+      "correctAnswer": "Parameterized queries",
+      "explanation": "The models use parameterized queries with ? placeholders for safe SQL execution.",
+      "points": 1
+    },
+    {
+      "question": "Which field in the users table stores the display name?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "nickname",
+      "explanation": "The nickname field stores the display name while name stores the full name.",
+      "points": 1
+    },
+    {
+      "question": "The todos table has both created_at and updated_at timestamp fields.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The todos table includes both created_at (default CURRENT_TIMESTAMP) and updated_at (ON UPDATE CURRENT_TIMESTAMP) fields.",
+      "points": 1
+    },
+    {
+      "question": "What method is used to mark a todo as incomplete?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["uncompleteTodo", "markTodoAsIncomplete", "setTodoIncomplete", "incompleteTodo"],
+      "correctAnswer": "markTodoAsIncomplete",
+      "explanation": "The markTodoAsIncomplete method sets is_completed to FALSE for a specific todo.",
+      "points": 1
+    },
+    {
+      "question": "The user model includes an email field for user accounts.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The users table schema includes an email field, though it's not defined in the SQL schema shown.",
+      "points": 1
+    },
+    {
+      "question": "Which sorting order is used when retrieving todos?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["ASC by created_at", "DESC by created_at", "ASC by title", "DESC by due_date"],
+      "correctAnswer": "DESC by created_at",
+      "explanation": "Todos are ordered by created_at DESC to show newest todos first.",
+      "points": 1
+    },
+    {
+      "question": "The database models use which architectural pattern?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "Active Record",
+      "explanation": "The models use an Active Record pattern where each model class handles its own database operations.",
+      "points": 1
+    }
+  ]
+}

@@ -77,10 +77,10 @@
               row.innerHTML = `
               <tr>
                 <th scope="row">${index + 1}</th>
-                <td>${todo.user_id}</td>
+                <td>${todo.user_name}</td>
                 <td>${todo.title}</td>
                 <td>${todo.due_date}</td>
-                <td>${todo.category_id}</td>
+                <td>${todo.category_name}</td>
                 <td>
                   <button class="btn btn-sm btn-warning">Edit</button>
                   <button class="btn btn-sm btn-danger" onclick="deleteTodo(${

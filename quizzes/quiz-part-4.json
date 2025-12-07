@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "question": "What frontend framework or library is used in the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["React", "Vue.js", "Angular", "Vanilla JavaScript"],
+      "correctAnswer": "Vanilla JavaScript",
+      "explanation": "The frontend uses vanilla JavaScript without any framework, embedded directly in the HTML.",
+      "points": 1
+    },
+    {
+      "question": "Which JavaScript function is used to fetch todos from the API?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "getTodos",
+      "explanation": "The getTodos() function makes a fetch request to /api/todos to retrieve and display todos.",
+      "points": 1
+    },
+    {
+      "question": "The frontend implements real-time data updates without page refresh.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The frontend uses fetch API to dynamically update the todo list without page refresh.",
+      "points": 1
+    },
+    {
+      "question": "Which Bootstrap version is used in the frontend?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["4.6.0", "5.2.0", "5.3.8", "5.0.0"],
+      "correctAnswer": "5.3.8",
+      "explanation": "Bootstrap version 5.3.8 is loaded from CDN for styling the interface.",
+      "points": 1
+    },
+    {
+      "question": "What happens when a user clicks the delete button for a todo?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "confirmation dialog appears",
+      "explanation": "The deleteTodo function shows a confirmation dialog before proceeding with deletion.",
+      "points": 1
+    },
+    {
+      "question": "The edit button in the todo list is fully functional.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The edit button exists in the UI but has no associated functionality implemented.",
+      "points": 1
+    },
+    {
+      "question": "Which HTML element contains the todo table data?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["todo-list", "todo-table-body", "todos-container", "table-content"],
+      "correctAnswer": "todo-table-body",
+      "explanation": "The tbody element with id 'todo-table-body' contains the dynamically generated todo rows.",
+      "points": 1
+    },
+    {
+      "question": "What method is used to make HTTP requests in the frontend?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "fetch",
+      "explanation": "The frontend uses the fetch API for making HTTP requests to the backend.",
+      "points": 1
+    },
+    {
+      "question": "The frontend includes form validation for creating new todos.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "There is no create todo form implemented in the current frontend interface.",
+      "points": 1
+    },
+    {
+      "question": "Which CSS framework provides the responsive grid system used in the application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Tailwind CSS", "Bulma", "Bootstrap", "Foundation"],
+      "correctAnswer": "Bootstrap",
+      "explanation": "Bootstrap provides the container and responsive grid system used in the interface.",
+      "points": 1
+    },
+    {
+      "question": "What happens after a todo is successfully deleted?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "getTodos is called",
+      "explanation": "After successful deletion, getTodos() is called to refresh the todo list display.",
+      "points": 1
+    },
+    {
+      "question": "The frontend implements client-side routing for navigation.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application is a single-page interface without client-side routing implementation.",
+      "points": 1
+    },
+    {
+      "question": "Which file serves the main todo interface?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["public/index.html", "views/todos/index.html", "views/main.html", "public/todos.html"],
+      "correctAnswer": "views/todos/index.html",
+      "explanation": "The /todos route serves the views/todos/index.html file as the main interface.",
+      "points": 1
+    },
+    {
+      "question": "What type of user feedback is shown when deleting a todo?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "alert",
+      "explanation": "An alert() dialog shows 'todo deleted' message after successful deletion.",
+      "points": 1
+    },
+    {
+      "question": "The frontend includes search and filtering functionality for todos.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "No search or filtering functionality is implemented in the current frontend.",
+      "points": 1
+    },
+    {
+      "question": "Which columns are displayed in the todo table?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["No, Title, Description, Actions", "No, User Name, Title, Due Date, Category, Action", "ID, Title, Status, Date", "User, Todo, Complete, Edit"],
+      "correctAnswer": "No, User Name, Title, Due Date, Category, Action",
+      "explanation": "The table displays: No, User Name, Title, Due Date, Category, and Action columns.",
+      "points": 1
+    },
+    {
+      "question": "The JavaScript code is located in which file?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "views/todos/index.html",
+      "explanation": "JavaScript code is embedded directly in the HTML file within script tags.",
+      "points": 1
+    },
+    {
+      "question": "The frontend uses modern ES6+ JavaScript features.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The code uses modern features like arrow functions, template literals, and the fetch API.",
+      "points": 1
+    },
+    {
+      "question": "What happens if there's an error fetching todos from the API?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Page crashes", "Error logged to console", "Alert shown to user", "Nothing happens"],
+      "correctAnswer": "Error logged to console",
+      "explanation": "Fetch errors are caught and logged to the console using console.error().",
+      "points": 1
+    },
+    {
+      "question": "Which Bootstrap component class is used for action buttons?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "btn",
+      "explanation": "Bootstrap's btn class is used along with size (btn-sm) and color (btn-warning, btn-danger) modifiers.",
+      "points": 1
+    },
+    {
+      "question": "The application implements progressive web app (PWA) features.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "No PWA features like service workers or manifest files are implemented.",
+      "points": 1
+    },
+    {
+      "question": "How are new table rows created for todos?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["innerHTML assignment", "createElement and appendChild", "jQuery methods", "Template cloning"],
+      "correctAnswer": "createElement and appendChild",
+      "explanation": "New rows are created using document.createElement('tr') and appendChild methods.",
+      "points": 1
+    },
+    {
+      "question": "What security measure is implemented to prevent XSS attacks in the frontend?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "none",
+      "explanation": "No specific XSS prevention measures are implemented; data is directly inserted into innerHTML.",
+      "points": 1
+    },
+    {
+      "question": "The todos.js file in the public directory contains frontend logic.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The public/todos.js file is empty; all JavaScript is embedded in the HTML file.",
+      "points": 1
+    },
+    {
+      "question": "Which design pattern is primarily used in the frontend JavaScript?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["MVC", "Observer", "Module", "Procedural"],
+      "correctAnswer": "Procedural",
+      "explanation": "The frontend uses a simple procedural approach with global functions for different operations.",
+      "points": 1
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "questions": [
+    {
+      "question": "Which architectural pattern is most evident in the Todo Saung application's structure?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Model-View-Controller (MVC)", "Model-View-Presenter (MVP)", "Model-View-ViewModel (MVVM)", "Layered Architecture"],
+      "correctAnswer": "Model-View-Controller (MVC)",
+      "explanation": "The application clearly separates models (database operations), views (HTML templates), and controllers (route handlers), following the MVC pattern.",
+      "points": 1
+    },
+    {
+      "question": "What is the primary advantage of using parameterized queries in database operations?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Better performance", "Prevention of SQL injection attacks", "Easier code maintenance", "Automatic query optimization"],
+      "correctAnswer": "Prevention of SQL injection attacks",
+      "explanation": "Parameterized queries separate SQL logic from data, preventing malicious SQL code injection through user inputs.",
+      "points": 1
+    },
+    {
+      "question": "In the context of RESTful API design, why is the PATCH method more appropriate than PUT for marking a todo as complete?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "PATCH is for partial updates",
+      "explanation": "PATCH is designed for partial resource updates (like changing only the completion status), while PUT is intended for complete resource replacement.",
+      "points": 1
+    },
+    {
+      "question": "Connection pooling would improve the application's performance by reducing database connection overhead.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "Connection pooling reuses existing connections instead of creating new ones for each request, reducing the overhead of connection establishment and teardown.",
+      "points": 1
+    },
+    {
+      "question": "What is the main security risk of storing passwords in plain text?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Increased storage space", "Slower authentication", "Complete account compromise if database is breached", "Difficulty in password recovery"],
+      "correctAnswer": "Complete account compromise if database is breached",
+      "explanation": "Plain text passwords can be immediately used by attackers if they gain access to the database, whereas hashed passwords provide protection even during breaches.",
+      "points": 1
+    },
+    {
+      "question": "In database design, what is the purpose of the CASCADE DELETE constraint on the foreign key relationship?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "Automatically delete related records",
+      "explanation": "CASCADE DELETE ensures that when a parent record (user) is deleted, all related child records (todos) are automatically deleted to maintain referential integrity.",
+      "points": 1
+    },
+    {
+      "question": "The application follows a stateless architecture design principle.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The API doesn't maintain server-side session state between requests, making each request independent and self-contained, which is a stateless design.",
+      "points": 1
+    },
+    {
+      "question": "What is the primary benefit of separating business logic into model classes?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Faster execution", "Code reusability and maintainability", "Reduced memory usage", "Better error handling"],
+      "correctAnswer": "Code reusability and maintainability",
+      "explanation": "Separating business logic into models allows the same database operations to be reused across different controllers and makes the code easier to maintain and test.",
+      "points": 1
+    },
+    {
+      "question": "Why is input validation important in web applications?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "Data integrity and security",
+      "explanation": "Input validation ensures data meets expected formats and constraints, preventing invalid data storage and protecting against malicious inputs that could compromise security.",
+      "points": 1
+    },
+    {
+      "question": "The use of environment variables for database configuration would improve security over hardcoded values.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "Environment variables keep sensitive configuration data separate from source code, preventing accidental exposure of credentials in version control systems.",
+      "points": 1
+    },
+    {
+      "question": "What is the main advantage of using middleware in Express.js applications?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Faster routing", "Code modularity and reusability", "Better error messages", "Automatic documentation"],
+      "correctAnswer": "Code modularity and reusability",
+      "explanation": "Middleware allows common functionality (like authentication, logging, parsing) to be written once and applied across multiple routes, promoting code reuse and modularity.",
+      "points": 1
+    },
+    {
+      "question": "In the context of web security, what does the principle of 'least privilege' mean?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "Minimum necessary permissions",
+      "explanation": "The principle of least privilege means granting users and processes only the minimum permissions necessary to perform their intended functions, reducing potential security risks.",
+      "points": 1
+    },
+    {
+      "question": "Implementing proper error handling improves both user experience and application security.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "Good error handling provides meaningful feedback to users while preventing sensitive system information from being exposed to potential attackers.",
+      "points": 1
+    },
+    {
+      "question": "What is the primary purpose of database normalization in the todo application's design?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Improve query speed", "Reduce data redundancy and maintain integrity", "Simplify database structure", "Enable better indexing"],
+      "correctAnswer": "Reduce data redundancy and maintain integrity",
+      "explanation": "Database normalization eliminates redundant data and ensures data consistency by organizing tables and relationships properly, as seen in the separate users and todos tables.",
+      "points": 1
+    },
+    {
+      "question": "Why is it important to close database connections after operations in the current application architecture?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "Prevent resource leaks",
+      "explanation": "Without connection pooling, unclosed connections would accumulate and eventually exhaust the database's connection limit, causing the application to fail when trying to establish new connections.",
+      "points": 1
+    }
+  ]
+}

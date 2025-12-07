@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "question": "What is the base URL path for all user-related API endpoints?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["/users", "/api/users", "/user", "/api/user"],
+      "correctAnswer": "/api/users",
+      "explanation": "User routes are mounted at '/api/users' as specified in index.js.",
+      "points": 1
+    },
+    {
+      "question": "Which HTTP method is used to create a new todo?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "POST",
+      "explanation": "Creating a new todo uses the POST method to /api/todos endpoint.",
+      "points": 1
+    },
+    {
+      "question": "The API includes input validation for required fields when creating todos.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The POST /api/todos route validates that user_id, title, and due_date are provided.",
+      "points": 1
+    },
+    {
+      "question": "What HTTP status code is returned when a todo is successfully created?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["200", "201", "202", "204"],
+      "correctAnswer": "201",
+      "explanation": "The POST /api/todos route returns status 201 (Created) for successful todo creation.",
+      "points": 1
+    },
+    {
+      "question": "Which endpoint is used to get todos for a specific user?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "/api/todos/user/:userId",
+      "explanation": "The route GET /api/todos/user/:userId retrieves all todos for a specific user.",
+      "points": 1
+    },
+    {
+      "question": "The todo routes include comprehensive error handling with try-catch blocks.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "All route handlers in todos.js include try-catch blocks for error handling.",
+      "points": 1
+    },
+    {
+      "question": "What HTTP method is used to mark a todo as completed?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["PUT", "POST", "PATCH", "UPDATE"],
+      "correctAnswer": "PATCH",
+      "explanation": "The PATCH method is used for /api/todos/:id/complete to partially update the completion status.",
+      "points": 1
+    },
+    {
+      "question": "Which route parameter is used to identify a specific user in user routes?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "id",
+      "explanation": "User routes use :id parameter to identify specific users (e.g., /api/users/:id).",
+      "points": 1
+    },
+    {
+      "question": "The user routes include error handling for database operations.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "User routes in users.js do not include try-catch blocks for error handling.",
+      "points": 1
+    },
+    {
+      "question": "What response format is used when a todo is not found?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Plain text", "HTML", "JSON", "XML"],
+      "correctAnswer": "JSON",
+      "explanation": "A 404 status with JSON response { error: 'Todo not found' } is returned when a todo is not found.",
+      "points": 1
+    },
+    {
+      "question": "Which endpoint allows updating any field of an existing todo?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "/api/todos/:id",
+      "explanation": "The PUT /api/todos/:id endpoint allows updating any fields of an existing todo.",
+      "points": 1
+    },
+    {
+      "question": "The categories API endpoints are defined in a separate route file.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "Category endpoints are defined directly in index.js, not in a separate route file.",
+      "points": 1
+    },
+    {
+      "question": "What information is returned when successfully deleting a user?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["User ID", "Success boolean", "Deleted user data", "Nothing"],
+      "correctAnswer": "Success boolean",
+      "explanation": "Delete operations return { success: deleteResult.affectedRows > 0 } format.",
+      "points": 1
+    },
+    {
+      "question": "Which HTTP status code is returned for server errors in todo routes?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "500",
+      "explanation": "Server errors in todo routes return status 500 (Internal Server Error).",
+      "points": 1
+    },
+    {
+      "question": "The API supports CORS (Cross-Origin Resource Sharing) headers.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application does not explicitly configure CORS middleware.",
+      "points": 1
+    },
+    {
+      "question": "What type of data does the GET /api/todos endpoint return?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Array of todos", "Single todo object", "User information", "Category list"],
+      "correctAnswer": "Array of todos",
+      "explanation": "GET /api/todos returns an array of all todos with associated user information.",
+      "points": 1
+    },
+    {
+      "question": "Which route is used to mark a todo as incomplete?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "/api/todos/:id/incomplete",
+      "explanation": "The PATCH /api/todos/:id/incomplete route marks a specific todo as incomplete.",
+      "points": 1
+    },
+    {
+      "question": "The user creation endpoint requires an email field.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The POST /api/users route includes email in the required fields for user creation.",
+      "points": 1
+    },
+    {
+      "question": "What HTTP method is used to completely update a user's information?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["POST", "PATCH", "PUT", "UPDATE"],
+      "correctAnswer": "PUT",
+      "explanation": "The PUT method is used for /api/users/:id to update user information.",
+      "points": 1
+    },
+    {
+      "question": "Which route provides access to all categories?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "/api/categories",
+      "explanation": "The GET /api/categories endpoint returns all categories from the database.",
+      "points": 1
+    },
+    {
+      "question": "The todo routes validate user permissions before allowing operations.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "There is no authentication or authorization validation in the todo routes.",
+      "points": 1
+    },
+    {
+      "question": "What happens when trying to get a specific category by ID?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Returns single category", "Returns array with category", "Returns 404 error", "Returns all categories"],
+      "correctAnswer": "Returns array with category",
+      "explanation": "GET /api/categories/:id returns an array containing the category object.",
+      "points": 1
+    },
+    {
+      "question": "Which field is NOT required when creating a new todo?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "description",
+      "explanation": "The description field is optional when creating a todo; only user_id, title, and due_date are required.",
+      "points": 1
+    },
+    {
+      "question": "The API uses RESTful conventions for endpoint design.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The API follows RESTful conventions with appropriate HTTP methods and resource-based URLs.",
+      "points": 1
+    },
+    {
+      "question": "What response is returned when successfully updating a todo?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Updated todo object", "Success message only", "Success boolean and message", "Nothing"],
+      "correctAnswer": "Success boolean and message",
+      "explanation": "Update operations return { success: boolean, message: string } format.",
+      "points": 1
+    }
+  ]
+}

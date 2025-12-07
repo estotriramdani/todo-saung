@@ -1,0 +1,74 @@
+GET http://localhost:11434
+
+### 
+
+POST http://localhost:11434/api/generate
+Content-Type: application/json
+
+{
+  "model": "gemma3:1b",
+  "prompt": "kamu tahu Esto?",
+  "stream": true
+}
+
+### 
+
+POST http://localhost:11434/api/chat
+Content-Type: application/json
+
+{
+  "model": "gemma3:1b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "diberikan data berikut: [{name: 'Andi', age: 25}, {name: 'Budi', age: 30}, {name: 'Citra', age: 22}]"
+    },
+    {
+      "role": "assistant",
+      "content": "Ada yang bisa saya bantu terkait data tersebut?"
+    },
+    {
+      "role": "user",
+      "content": "berapa orang di data tersebut?"
+    }
+  ],
+  "stream": false
+}
+
+### 
+
+POST http://localhost:11434/api/chat
+Content-Type: application/json
+
+{
+  "model": "gemma3:1b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Presiden Indonesia ke-8 adalah Prabowo Subianto. Presiden Indonesia ke-7 adalah Joko Widodo. Presiden Indonesia ke-6 adalah Susilo Bambang Yudhoyono. Presiden Indonesia ke-5 adalah Megawati Soekarnoputri."
+    },
+    {
+      "role": "assistant",
+      "content": "Ada yang bisa saya bantu terkait data tersebut?"
+    },
+    {
+      "role": "user",
+      "content": "Siapa presiden ke-8?"
+    }
+  ],
+  "stream": false
+}
+
+### 
+
+POST http://localhost:11434/api/generate
+Content-Type: application/json
+
+{
+  "model": "gemma3:1b",
+  "prompt": "Buatkan saya todo list untuk hari ini. Format json dengan property title, description, dan due_date. Contoh: {\"title\": \"Belanja\", \"description\": \"Beli sayur dan buah\", \"due_date\": \"2023-10-01\"}",
+  "stream": false,
+  "format": "json"
+}
+
+### 

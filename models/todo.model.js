@@ -5,9 +5,11 @@ class TodoModel {
     const connection = await connectToDb();
 
     const [todos] = await connection.query(`
-      SELECT t.*, u.name as user_name, u.nickname as user_nickname 
+      SELECT t.*, u.name as user_name, u.nickname as user_nickname,
+      c.category_name
       FROM todos t 
       LEFT JOIN users u ON t.user_id = u.id
+      INNER JOIN categories c ON t.category_id = c.id
       ORDER BY t.created_at DESC
     `);
 
@@ -20,9 +22,12 @@ class TodoModel {
     const connection = await connectToDb();
 
     const [todos] = await connection.query(`
-      SELECT t.*, u.name as user_name, u.nickname as user_nickname 
+      SELECT 
+        t.*, u.name as user_name, u.nickname as user_nickname,
+        c.category_name
       FROM todos t 
       LEFT JOIN users u ON t.user_id = u.id
+      INNER JOIN categories c ON t.category_id = c.id
       WHERE t.id = ?
     `, [id]);
 

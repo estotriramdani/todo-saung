@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "question": "What is the main framework used in the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["React", "Express.js", "Angular", "Vue.js"],
+      "correctAnswer": "Express.js",
+      "explanation": "Todo Saung is built using Express.js version 5.1.0 as the main backend framework.",
+      "points": 1
+    },
+    {
+      "question": "Which database system is used in the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+      "correctAnswer": "MySQL",
+      "explanation": "The application uses MySQL database with mysql2 package for database operations.",
+      "points": 1
+    },
+    {
+      "question": "What is the main entry point file of the Todo Saung application?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "index.js",
+      "explanation": "The main entry point of the application is index.js as specified in package.json.",
+      "points": 1
+    },
+    {
+      "question": "The Todo Saung application follows the MVC (Model-View-Controller) architecture pattern.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "True",
+      "explanation": "The application is organized with models (in /models/), views (in /views/), and controllers (routes in /routes/).",
+      "points": 1
+    },
+    {
+      "question": "What port does the Todo Saung application run on by default?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["3000", "8080", "5000", "4000"],
+      "correctAnswer": "5000",
+      "explanation": "The application is configured to run on port 5000 as specified in index.js.",
+      "points": 1
+    },
+    {
+      "question": "Which tool is used for development auto-reloading in Todo Saung?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "nodemon",
+      "explanation": "Nodemon version 3.1.10 is used for automatic server restarting during development.",
+      "points": 1
+    },
+    {
+      "question": "The application uses environment variables for database configuration.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The database configuration is hardcoded in config/config.js file, not using environment variables.",
+      "points": 1
+    },
+    {
+      "question": "What CSS framework is used in the frontend of Todo Saung?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["Tailwind CSS", "Bootstrap", "Bulma", "Foundation"],
+      "correctAnswer": "Bootstrap",
+      "explanation": "The application uses Bootstrap version 5.3.8 for styling the frontend interface.",
+      "points": 1
+    },
+    {
+      "question": "Which directory contains the database schema files?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "sql",
+      "explanation": "Database schema and migration files are stored in the /sql/ directory.",
+      "points": 1
+    },
+    {
+      "question": "The Todo Saung application has authentication implemented.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application currently does not implement any authentication mechanism.",
+      "points": 1
+    },
+    {
+      "question": "What is the database host used in the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["localhost", "sql.freedb.tech", "mysql.com", "database.local"],
+      "correctAnswer": "sql.freedb.tech",
+      "explanation": "The application connects to a remote MySQL database hosted on sql.freedb.tech.",
+      "points": 1
+    },
+    {
+      "question": "Which directory contains the static assets like CSS and JavaScript files?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "public",
+      "explanation": "Static assets are served from the /public/ directory using express.static middleware.",
+      "points": 1
+    },
+    {
+      "question": "The application uses connection pooling for database operations.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application creates a new database connection for each operation and closes it afterward.",
+      "points": 1
+    },
+    {
+      "question": "What is the package manager used in the Todo Saung project?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["yarn", "pnpm", "npm", "bower"],
+      "correctAnswer": "npm",
+      "explanation": "The project uses npm as indicated by the package.json file structure.",
+      "points": 1
+    },
+    {
+      "question": "Which directory contains the HTML template files?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "views",
+      "explanation": "HTML template files are stored in the /views/ directory, specifically /views/todos/index.html.",
+      "points": 1
+    },
+    {
+      "question": "The Todo Saung application supports real-time updates using WebSockets.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application uses standard HTTP requests and does not implement WebSocket functionality.",
+      "points": 1
+    },
+    {
+      "question": "What is the current version of the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["0.1.0", "1.0.0", "2.0.0", "1.5.0"],
+      "correctAnswer": "1.0.0",
+      "explanation": "The version is specified as 1.0.0 in the package.json file.",
+      "points": 1
+    },
+    {
+      "question": "Which directory contains API testing files?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "client",
+      "explanation": "The /client/ directory contains HTTP files for testing API endpoints.",
+      "points": 1
+    },
+    {
+      "question": "The application uses TypeScript for development.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application is written in vanilla JavaScript, not TypeScript.",
+      "points": 1
+    },
+    {
+      "question": "What middleware is used for parsing JSON requests in the application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["body-parser", "express.json()", "multer", "cors"],
+      "correctAnswer": "express.json()",
+      "explanation": "The application uses express.json() middleware for parsing JSON request bodies.",
+      "points": 1
+    },
+    {
+      "question": "Which file contains the database connection configuration?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "config/config.js",
+      "explanation": "Database connection parameters are defined in the config/config.js file.",
+      "points": 1
+    },
+    {
+      "question": "The Todo Saung application uses a microservices architecture.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "The application follows a monolithic architecture with all components in a single codebase.",
+      "points": 1
+    },
+    {
+      "question": "What is the database name used in the Todo Saung application?",
+      "type": "MULTIPLE_CHOICE",
+      "options": ["todo_db", "freedb_todo_saung_esto", "saung_database", "todo_application"],
+      "correctAnswer": "freedb_todo_saung_esto",
+      "explanation": "The database name is freedb_todo_saung_esto as specified in the configuration.",
+      "points": 1
+    },
+    {
+      "question": "Which npm script is used to start the development server?",
+      "type": "SHORT_ANSWER",
+      "correctAnswer": "dev",
+      "explanation": "The 'dev' script runs 'nodemon index.js' to start the development server with auto-reload.",
+      "points": 1
+    },
+    {
+      "question": "The application includes comprehensive error handling and logging mechanisms.",
+      "type": "TRUE_FALSE",
+      "correctAnswer": "False",
+      "explanation": "While basic try-catch blocks exist, the application lacks comprehensive logging and error handling systems.",
+      "points": 1
+    }
+  ]
+}
