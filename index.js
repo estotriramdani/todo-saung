@@ -6,6 +6,7 @@ const todoRouter = require('./routes/todos')
 const ollamaRouter = require('./routes/ollama')
 const authRouter = require('./routes/auth')
 const cors = require('cors');
+const proxy = require('express-http-proxy');
 
 const app = express();
 
@@ -15,10 +16,6 @@ app.use(cors())
 
 // Tujuan: untuk serving static asset (javascript, css, dll)
 app.use(express.static('public'));
-
-app.get('/', function (request, response) {
-  response.send('Halo Dunia!');
-})
 
 // ===== API =====
 app.use('/api/auth', authRouter)
@@ -52,7 +49,9 @@ app.use('/api/ollama', ollamaRouter);
 
 app.get('/todos', async function (req, res) {
   return res.sendFile(path.join(__dirname, './views/todos/index.html'))
-})
+});
+
+app.use('/', proxy('localhost:5173'));
 
 app.listen(5000, function () {
   console.log('Server is running on http://localhost:5000');
