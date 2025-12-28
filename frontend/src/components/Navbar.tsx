@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Navbar() {
   const handleLogout = () => {
     // Logout logic will be implemented later
@@ -11,24 +13,24 @@ export default function Navbar() {
           <div className="flex items-center gap-8">
             <h1 className="text-2xl font-bold text-teal-700">SCoding Todos</h1>
             <div className="flex gap-4">
-              <a
-                href="/app/dashboard"
+              <Link
+                to="/app/dashboard"
                 className="text-teal-700 hover:text-teal-900 font-semibold px-4 py-2 rounded-lg hover:bg-teal-50 transition-all duration-200"
               >
                 My Todos
-              </a>
-              <a
-                href="/app/chatbot"
+              </Link>
+              <Link
+                to="/app/chatbot"
                 className="text-teal-700 hover:text-teal-900 font-semibold px-4 py-2 rounded-lg hover:bg-teal-50 transition-all duration-200"
               >
                 Chatbot
-              </a>
-              <a
-                href="/app/user-statistics"
+              </Link>
+              <Link
+                to="/app/user-statistics"
                 className="text-teal-700 hover:text-teal-900 font-semibold px-4 py-2 rounded-lg hover:bg-teal-50 transition-all duration-200"
               >
                 User Statistics
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center gap-4">
