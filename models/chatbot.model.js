@@ -34,6 +34,18 @@ class ChatbotModel {
       title,
     };
   }
+
+  async getChat(chatId) {
+    const connection = await connectToDb();
+
+    const [messages] = await connection.query(
+      `SELECT
+      * FROM messages WHERE chat_id = ?`,
+      [chatId]
+    )
+
+    return messages;
+  }
 }
 
 module.exports = new ChatbotModel();

@@ -1,1 +1,14 @@
 GET http://localhost:5000/api/chatbot/chats
+
+###
+
+POST http://localhost:5000/api/chatbot/chats/1/messages
+
+###
+
+POST http://localhost:5000/api/chatbot/chats/1/messages
+Content-Type: application/json
+
+{
+  "prompt": "Berapa hasil 1 + 1"
+}

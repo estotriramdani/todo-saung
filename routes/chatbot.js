@@ -1,5 +1,7 @@
 const express = require('express');
 const ChatbotModel = require('../models/chatbot.model');
+const { default: axios } = require('axios');
+const { GEMINI_API_KEY } = require('../config/config');
 
 const router = express.Router();
 
@@ -29,6 +31,42 @@ router.post('/chats', async function (req, res) {
 
   return res.status(201).json({
     data: newChat,
+  });
+});
+
+router.get('/chats/:chatId/messages', async function (req, res) {
+  const messages = await ChatbotModel.getChat(req.params.chatId);
+
+  return res.json({
+    data: messages,
+  });
+});
+
+router.post('/chats/:chatId/messages', async function (req, res) {
+  const prompt = req.body.prompt;
+
+  const response = await axios.post(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+    {
+      contents: [
+        {
+          parts: [
+            {
+              text: prompt,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  return res.json({
+    data: response.data,
   });
 });
 
