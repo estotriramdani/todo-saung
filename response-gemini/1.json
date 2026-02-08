@@ -1,0 +1,36 @@
+{
+  "data": {
+    "prompt": "Berapa hasil 1 + 5",
+    "answer": "Hasil dari 1 + 5 adalah **6**.",
+    "detail": {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "Hasil dari 1 + 5 adalah **6**."
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 9,
+        "candidatesTokenCount": 11,
+        "totalTokenCount": 46,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 26
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "responseId": "uDJ_aZj_FaaKqfkPgY3s2Qw"
+    }
+  }
+}

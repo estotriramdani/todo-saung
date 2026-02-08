@@ -21,11 +21,11 @@ class ChatbotModel {
 
     const connection = await connectToDb();
 
-    const [result] = await connection.query(
-      `INSERT INTO chats (user_id, title) VALUES (?, ?)`,
-      [user_id, title]
-    );
-    
+    const [result] = await connection.query(`INSERT INTO chats (user_id, title) VALUES (?, ?)`, [
+      user_id,
+      title,
+    ]);
+
     await connection.end();
 
     return {
@@ -42,9 +42,24 @@ class ChatbotModel {
       `SELECT
       * FROM messages WHERE chat_id = ?`,
       [chatId]
-    )
+    );
 
     return messages;
+  }
+
+  async insertMessage({ chat_id, type, content }) {
+    const connection = await connectToDb();
+
+    const [insertMessage] = await connection.query(
+      `INSERT INTO messages (chat_id, type, content) VALUES (?, ?, ?)`,
+      [chat_id, type, content]
+    );
+
+    if (insertMessage.affectedRows > 1) {
+      return true
+    }
+
+    return false;
   }
 }
 

@@ -45,6 +45,12 @@ router.get('/chats/:chatId/messages', async function (req, res) {
 router.post('/chats/:chatId/messages', async function (req, res) {
   const prompt = req.body.prompt;
 
+  await ChatbotModel.insertMessage({ 
+    chat_id: req.params.chatId, 
+    type: 'user', 
+    content: prompt 
+  });
+
   const response = await axios.post(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
     {
@@ -65,8 +71,20 @@ router.post('/chats/:chatId/messages', async function (req, res) {
     }
   );
 
+  const contentAI = response.data.candidates[0].content.parts[0].text;
+
+  await ChatbotModel.insertMessage({ 
+    chat_id: req.params.chatId, 
+    type: 'bot', 
+    content: contentAI, 
+  });
+
   return res.json({
-    data: response.data,
+    data: {
+      prompt: prompt,
+      answer: contentAI,
+      detail: response.data,
+    },
   });
 });
 
