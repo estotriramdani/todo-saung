@@ -2,7 +2,7 @@ GET http://localhost:5000/api/chatbot/chats
 
 ###
 
-POST http://localhost:5000/api/chatbot/chats/1/messages
+GET http://localhost:5000/api/chatbot/chats/1/messages
 
 ###
 
