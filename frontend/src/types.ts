@@ -11,7 +11,9 @@ export interface IMessage {
 }
 
 export interface ResponseApiAI {
-  data: IMessageAI
+  status: boolean;
+  data: IMessageAI;
+  message?: string;
 }
 
 export interface IMessageAI {

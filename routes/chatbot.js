@@ -1,7 +1,6 @@
 const express = require('express');
 const ChatbotModel = require('../models/chatbot.model');
-const { default: axios } = require('axios');
-const { GEMINI_API_KEY } = require('../config/config');
+const { generateAiResponse } = require('../services/ai');
 
 const router = express.Router();
 
@@ -45,45 +44,37 @@ router.get('/chats/:chatId/messages', async function (req, res) {
 router.post('/chats/:chatId/messages', async function (req, res) {
   const prompt = req.body.prompt;
 
-  await ChatbotModel.insertMessage({ 
-    chat_id: req.params.chatId, 
-    type: 'user', 
-    content: prompt 
+  const isLimit = await ChatbotModel.checkChatLimit({ user_id: 1 });
+
+  if (isLimit.isLimit) {
+    return res.status(429).json({
+      status: false,
+      message: `You are in limit. Try again after ${isLimit.nextLimit}.`
+    })
+  }
+
+  await ChatbotModel.insertMessage({
+    chat_id: req.params.chatId,
+    type: 'user',
+    content: prompt,
   });
 
-  const response = await axios.post(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      contents: [
-        {
-          parts: [
-            {
-              text: prompt,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+  const contentAI = await generateAiResponse(prompt);
 
-  const contentAI = response.data.candidates[0].content.parts[0].text;
-
-  await ChatbotModel.insertMessage({ 
-    chat_id: req.params.chatId, 
-    type: 'bot', 
-    content: contentAI, 
+  await ChatbotModel.insertMessage({
+    chat_id: req.params.chatId,
+    type: 'bot',
+    content: contentAI,
   });
+
+  await ChatbotModel.updateHistoryChat({ user_id: 1 });
 
   return res.json({
+    status: true,
     data: {
       prompt: prompt,
       answer: contentAI,
-      detail: response.data,
+      // detail: response.data,
     },
   });
 });

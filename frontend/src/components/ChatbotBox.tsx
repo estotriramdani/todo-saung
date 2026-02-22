@@ -69,6 +69,11 @@ export default function ChatbotBox(props: { chatId: string }) {
     });
     const responseJson: ResponseApiAI = await response.json();
 
+    if (responseJson.status === false) {
+      alert(responseJson.message);
+      setIsTyping(false);
+      return;
+    }
     const botMessage: Message = {
       id: (Date.now() + 1).toString(),
       type: 'bot',
