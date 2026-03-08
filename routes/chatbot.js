@@ -33,6 +33,60 @@ router.post('/chats', async function (req, res) {
   });
 });
 
+router.get('/chats/:chatId', async function (req, res) {
+  const chat = await ChatbotModel.getChatById(req.params.chatId);
+
+  if (!chat) {
+    return res.status(404).json({
+      status: false,
+      message: 'Chat not found.',
+    });
+  }
+
+  return res.status(200).json({
+    status: true,
+    data: chat,
+  });
+});
+
+router.put('/chats/:chatId', async function (req, res) {
+  const chat = await ChatbotModel.getChatById(req.params.chatId);
+
+  if (!chat) {
+    return res.status(404).json({
+      status: false,
+      message: 'Chat not found.',
+    });
+  }
+
+  const updated = await ChatbotModel.updateChat(req.params.chatId, {
+    title: req.body.title,
+  });
+
+  return res.status(200).json({
+    status: updated,
+    message: updated ? 'Chat updated successfully.' : 'Failed to update chat.',
+  });
+});
+
+router.delete('/chats/:chatId', async function (req, res) {
+  const chat = await ChatbotModel.getChatById(req.params.chatId);
+
+  if (!chat) {
+    return res.status(404).json({
+      status: false,
+      message: 'Chat not found.',
+    });
+  }
+
+  const deleted = await ChatbotModel.deleteChat(req.params.chatId);
+
+  return res.status(200).json({
+    status: deleted,
+    message: deleted ? 'Chat deleted successfully.' : 'Failed to delete chat.',
+  });
+});
+
 router.get('/chats/:chatId/messages', async function (req, res) {
   const messages = await ChatbotModel.getChat(req.params.chatId);
 

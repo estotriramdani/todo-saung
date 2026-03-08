@@ -36,6 +36,22 @@ class ChatbotModel {
     };
   }
 
+  async getChatById(chatId) {
+    const connection = await connectToDb();
+
+    const [[chat]] = await connection.query(
+      `SELECT * FROM chats WHERE id = ?`,
+      [chatId]
+    );
+
+    // [{ id: 1, title: 'chat 1' }]
+    // result { id: 1, title: 'chat 1' }
+
+    await connection.end();
+
+    return chat || null;
+  }
+
   async getChat(chatId) {
     const connection = await connectToDb();
 
@@ -46,6 +62,30 @@ class ChatbotModel {
     );
 
     return messages;
+  }
+
+  async updateChat(chatId, data) {
+    const connection = await connectToDb();
+
+    const [result] = await connection.query(
+      `UPDATE chats SET title = ? WHERE id = ?`,
+      [data.title, chatId]
+    );
+
+    await connection.end();
+
+    return result.affectedRows > 0;
+  }
+
+  async deleteChat(chatId) {
+    const connection = await connectToDb();
+
+    await connection.query(`DELETE FROM messages WHERE chat_id = ?`, [chatId]);
+    const [result] = await connection.query(`DELETE FROM chats WHERE id = ?`, [chatId]);
+
+    await connection.end();
+
+    return result.affectedRows > 0;
   }
 
   async insertMessage({ chat_id, type, content }) {
